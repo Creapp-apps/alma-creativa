@@ -1,5 +1,5 @@
-"use client";
 // @ts-nocheck
+"use client";
 /* eslint-disable */
 /* =========================================================================
    CircularCarousel — adaptado de reactbits.dev (JS → TSX).
@@ -94,7 +94,7 @@ const usePrefersReducedMotion = () => {
 };
 
 const CircularCarousel = ({
-  items = DEFAULT_ITEMS,
+  items = DEFAULT_ITEMS as any,
   preset = "cylinder",
   intro = "rise",
   cardWidth = 220,
@@ -123,7 +123,7 @@ const CircularCarousel = ({
   onItemClick,
   className = "",
   style,
-}) => {
+}: any) => {
   const incoming = items && items.length ? items : DEFAULT_ITEMS;
   const [list, setList] = useState(incoming);
   const [leaving, setLeaving] = useState(null);

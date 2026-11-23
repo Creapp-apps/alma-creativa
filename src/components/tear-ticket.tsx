@@ -1,5 +1,5 @@
-"use client";
 // @ts-nocheck
+"use client";
 /* eslint-disable */
 /* =========================================================================
    TearTicket — de reactbits.dev (dep: motion). Import ajustado a
@@ -85,8 +85,8 @@ const buildGeometry = (W, H, S, R, holes, hole, notch, rough, vertical) => {
 };
 
 export default function TearTicket({
-  children = null,
-  stub = null,
+  children = null as any,
+  stub = null as any,
   image = "",
   imageAlt = "",
   scrim = true,
@@ -122,7 +122,7 @@ export default function TearTicket({
   disabled = false,
   ariaLabel = "Tear off the stub",
   className = "",
-}) {
+}: any) {
   const reduce = useReducedMotion();
   const controlled = torn !== undefined;
   const [inner, setInner] = useState(defaultTorn);

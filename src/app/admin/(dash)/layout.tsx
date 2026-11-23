@@ -8,6 +8,11 @@ import { DashHeader } from "@/components/admin/dash-header";
 import { createClient } from "@/lib/supabase/server";
 import { isSupabaseConfigured } from "@/lib/supabase/config";
 
+// Área admin: lee la sesión (cookies) en el server, no se puede prerenderizar
+// en el shell estático. Ruta bloqueante bajo Cache Components.
+// TODO: migrar a streaming de los datos de sesión detrás de <Suspense>.
+export const instant = false;
+
 // Pedidos web "sin accionar" (todavía en etapa pendiente) → badge breathe.
 async function getSidebarBadges(): Promise<Record<string, number>> {
   if (!isSupabaseConfigured()) return {};
